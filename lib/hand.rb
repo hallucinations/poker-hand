@@ -18,7 +18,7 @@ class Hand
   }
 
   def initialize(hand)
-    @cards = hand.split(" ").map { |card| Card.new card }
+    @cards = hand.split(' ').map { |card| Card.new card }
   end
 
   def type

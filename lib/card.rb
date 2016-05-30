@@ -24,7 +24,7 @@ class Card
   def typecast_value(value)
     return value.to_i unless (value =~ /^[2-9]$|^10$/).nil?
 
-    fail InvalidCardError, "Invalid card value" unless PICTURE_CARDS.has_key? value.to_sym
+    fail InvalidCardError, 'Invalid card value' unless PICTURE_CARDS.has_key? value.to_sym
     PICTURE_CARDS[value.to_sym]
   end
 end

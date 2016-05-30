@@ -20,7 +20,7 @@ describe Hand do
     let (:rflush_hearts) { Hand.new 'H10 HJ HQ HK HA' }
     let (:rflush_spades) { Hand.new 'S10 SJ SQ SK SA' }
 
-    it "is true when A, K, Q, J, 10, all the same suit. " do
+    it 'is true when A, K, Q, J, 10, all the same suit' do
       rflush_clubs.royal_flush?.must_equal true
       rflush_diamonds.royal_flush?.must_equal true
       rflush_hearts.royal_flush?.must_equal true
@@ -30,7 +30,7 @@ describe Hand do
     let (:random_diamonds) { Hand.new 'D2 DK D8 D9 D7' }
     let (:random_types) { Hand.new 'H2 DJ C4 D6 D7' }
 
-    it "is false when it is not a royal flush" do
+    it 'is false when it is not a royal flush' do
       random_diamonds.royal_flush?.must_equal false
       random_types.royal_flush?.must_equal false
     end
