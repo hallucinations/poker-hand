@@ -1,5 +1,5 @@
 require_relative 'spec_helper'
-require_relative '../card'
+require_relative '../lib/card'
 
 describe Card do
   describe 'A new instance' do

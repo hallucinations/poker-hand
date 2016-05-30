@@ -1,6 +1,6 @@
 require_relative 'spec_helper'
-require_relative '../card'
-require_relative '../hand'
+require_relative '../lib/card'
+require_relative '../lib/hand'
 
 describe Hand do
   describe '#cards' do
@@ -191,6 +191,39 @@ describe Hand do
       subject.rank.must_equal 14
       subject.type.must_equal 'C'
       subject.value.must_equal 'A'
+    end
+  end
+
+  describe '#type' do
+    let (:rflush_clubs) { Hand.new 'C10 CJ CQ CK CA' }
+    let (:sflushc) { Hand.new 'C2 C3 C4 C5 C6' }
+    let (:foak) { Hand.new 'C10 D10 H10 S10 DA' }
+    let (:full_house) { Hand.new 'C10 D10 S10 C2 H2' }
+    let (:sflushc) { Hand.new 'C2 C3 C4 C5 C6' }
+    let (:flush_c) { Hand.new 'C2 CQ C10 CJ C7' }
+    let (:straight) { Hand.new 'C2 D3 D4 S5 H6' }
+    let (:tok) { Hand.new 'C2 D2 S2 H5 C6' }
+    let (:tp) { Hand.new 'C2 D2 S10 H10 C6' }
+    let (:pair) { Hand.new 'C2 D2 SA H7 C6' }
+    let (:hk) { Hand.new 'C4 D2 SA H7 C6' }
+
+    it 'provides the type of the hand' do
+      rflush_clubs.type.must_equal 'Royal flush'
+      sflushc.type.must_equal 'Straight flush'
+      foak.type.must_equal 'Four of a kind'
+      flush_c.type.must_equal 'Flush'
+      straight.type.must_equal 'Straight'
+      tok.type.must_equal 'Three of a kind'
+      tp.type.must_equal 'Two pair'
+      pair.type.must_equal 'Pair'
+      hk.type.must_equal 'High card'
+    end
+  end
+
+  describe '#to_s' do
+    subject { Hand.new 'C10 CJ CQ CK CA' }
+    it 'prints the type and high card of the card in a friendly format' do
+      subject.to_s.must_equal 'type: Royal flush, high card: CA'
     end
   end
 end

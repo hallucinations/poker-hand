@@ -17,7 +17,7 @@ class Card
   end
 
   def to_s
-    "#{value}#{type}"
+    "#{type}#{value}"
   end
 
   private
