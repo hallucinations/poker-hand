@@ -5,16 +5,16 @@ class Hand
   attr_reader :cards
 
   METHOD_TYPE_MAP = {
-    :royal_flush? => 'Royal flush',
-    :straight_flush? => 'Straight flush',
-    :four_of_a_kind? => 'Four of a kind',
-    :full_house? => 'Full house',
-    :flush? => 'Flush',
-    :straight? => 'Straight',
-    :three_of_a_kind? => 'Three of a kind',
-    :two_pair? => 'Two pair',
-    :pair? => 'Pair',
-    :high_card? => 'High card'
+    :royal_flush? => 'Royal flush'.freeze,
+    :straight_flush? => 'Straight flush'.freeze,
+    :four_of_a_kind? => 'Four of a kind'.freeze,
+    :full_house? => 'Full house'.freeze,
+    :flush? => 'Flush'.freeze,
+    :straight? => 'Straight'.freeze,
+    :three_of_a_kind? => 'Three of a kind'.freeze,
+    :two_pair? => 'Two pair'.freeze,
+    :pair? => 'Pair'.freeze,
+    :high_card? => 'High card'.freeze
   }
 
   def initialize(hand)
