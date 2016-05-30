@@ -15,6 +15,10 @@ class Card
     @rank = typecast_value(@value)
   end
 
+  def to_s
+    "#{value}#{type}"
+  end
+
   private
   def typecast_value(value)
     return value.to_i unless (value =~ /^[2-9]$|^10$/).nil?
