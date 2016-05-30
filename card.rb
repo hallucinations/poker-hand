@@ -10,6 +10,7 @@ class Card
   def initialize(string)
     type = string[0].upcase
     fail InvalidCardError, 'Invalid card type' unless VALID_TYPES.include? type
+
     @type = type
     @value = string[1..-1].upcase
     @rank = typecast_value(@value)
