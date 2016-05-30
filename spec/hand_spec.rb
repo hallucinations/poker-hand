@@ -3,8 +3,17 @@ require_relative '../lib/card'
 require_relative '../lib/hand'
 
 describe Hand do
+  describe 'a new instance' do
+    describe 'with number of cards is not 5' do
+      it 'raises InvalidHandrror' do
+        err = -> { Hand.new 'D2 S2 HQ C5' }.must_raise Hand::InvalidHandError
+        err.message.must_equal 'A hand must have 5 cards'
+      end
+    end
+  end
+
   describe '#cards' do
-    let (:cards) { %w(C10 DA HJ SQ).to_a }
+    let (:cards) { %w(C10 DA HJ SQ C9).to_a }
     let(:hand) {Hand.new cards.join(' ')}
     subject { hand.cards }
 

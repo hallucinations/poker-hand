@@ -4,6 +4,8 @@ require_relative 'core_ext/array'
 class Hand
   attr_reader :cards
 
+  class InvalidHandError < ArgumentError; end
+
   METHOD_TYPE_MAP = {
     :royal_flush? => 'Royal flush'.freeze,
     :straight_flush? => 'Straight flush'.freeze,
@@ -17,8 +19,11 @@ class Hand
     :high_card? => 'High card'.freeze
   }
 
+  HAND_SIZE = 5
+
   def initialize(hand)
     @cards = hand.split(' ').map { |card| Card.new card }
+    raise InvalidHandError, "A hand must have #{HAND_SIZE} cards" unless @cards.size == HAND_SIZE
   end
 
   def type
@@ -47,11 +52,11 @@ class Hand
   end
 
   def flush?
-    @cards.size == 5 && @cards.map(&:type).uniq.size == 1
+    @cards.map(&:type).uniq.size == 1
   end
 
   def straight?
-    @cards.size == 5 && @cards.map(&:rank).number_sequence?
+    @cards.map(&:rank).number_sequence?
   end
 
   def three_of_a_kind?

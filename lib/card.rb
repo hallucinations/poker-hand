@@ -1,8 +1,7 @@
 class Card
   attr_reader :type, :value, :rank
 
-  class InvalidCardError < ArgumentError
-  end
+  class InvalidCardError < ArgumentError; end
 
   PICTURE_CARDS = {J: 11, Q: 12, K:13, A:14}
   VALID_TYPES = ['C'.freeze, 'H'.freeze, 'S'.freeze, 'D'.freeze]
