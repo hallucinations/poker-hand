@@ -1,6 +1,7 @@
 require_relative 'card'
 require_relative 'core_ext/array'
 
+# Ref: http://www.cardplayer.com/rules-of-poker/hand-rankings
 class Hand
   attr_reader :cards
 
