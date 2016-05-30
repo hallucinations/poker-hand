@@ -53,7 +53,7 @@ class Hand
   end
 
   def flush?
-    @cards.map(&:type).uniq.size == 1
+    @cards.map(&:suit).uniq.size == 1
   end
 
   def straight?

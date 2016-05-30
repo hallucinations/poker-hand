@@ -198,7 +198,7 @@ describe Hand do
 
     it 'provides the highest ranked card in the deck' do
       subject.rank.must_equal 14
-      subject.type.must_equal 'C'
+      subject.suit.must_equal 'C'
       subject.value.must_equal 'A'
     end
   end

@@ -9,11 +9,11 @@ describe Card do
       end
     end
 
-    describe 'With an invalid card type' do
+    describe 'With an invalid card suit' do
       it 'raises InvalidCardError' do
         (('A'..'Z').to_a - Card::VALID_TYPES).each do |errs, type|
           arg_error = -> { Card.new "#{type}10" }.must_raise Card::InvalidCardError
-          arg_error.message.must_equal'Invalid card type'
+          arg_error.message.must_equal'Invalid card suit'
         end
       end
     end
@@ -28,14 +28,14 @@ describe Card do
     end
   end
 
-  describe '#type' do
+  describe '#suit' do
     let(:club) { Card.new 'C10' }
     let(:diamond) { Card.new 'DJ' }
     let(:heart) { Card.new 'HQ' }
     let(:spade) { Card.new 'S9' }
 
-    it 'gives the type of the card' do
-      club.type.must_equal 'C'
+    it 'gives the suit of the card' do
+      club.suit.must_equal 'C'
     end
   end
 

@@ -1,5 +1,5 @@
 class Card
-  attr_reader :type, :value, :rank
+  attr_reader :suit, :value, :rank
 
   class InvalidCardError < ArgumentError; end
 
@@ -7,16 +7,16 @@ class Card
   VALID_TYPES = ['C'.freeze, 'H'.freeze, 'S'.freeze, 'D'.freeze]
 
   def initialize(string)
-    type = string[0].upcase
-    fail InvalidCardError, 'Invalid card type' unless VALID_TYPES.include? type
+    suit = string[0].upcase
+    fail InvalidCardError, 'Invalid card suit' unless VALID_TYPES.include? suit
 
-    @type = type
+    @suit = suit
     @value = string[1..-1].upcase
     @rank = typecast_value(@value)
   end
 
   def to_s
-    "#{type}#{value}"
+    "#{suit}#{value}"
   end
 
   private
