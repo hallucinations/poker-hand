@@ -1,4 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-gem 'minitest-reporters'
+group :development do
+  gem 'minitest-reporters'
+  gem 'rake'
+end
