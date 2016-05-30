@@ -8,16 +8,16 @@ class Hand
   class InvalidHandError < ArgumentError; end
 
   METHOD_TYPE_MAP = {
-    :royal_flush? => 'Royal flush'.freeze,
-    :straight_flush? => 'Straight flush'.freeze,
-    :four_of_a_kind? => 'Four of a kind'.freeze,
-    :full_house? => 'Full house'.freeze,
-    :flush? => 'Flush'.freeze,
-    :straight? => 'Straight'.freeze,
-    :three_of_a_kind? => 'Three of a kind'.freeze,
-    :two_pair? => 'Two pair'.freeze,
-    :pair? => 'Pair'.freeze,
-    :high_card? => 'High card'.freeze
+    royal_flush?: 'Royal flush'.freeze,
+    straight_flush?: 'Straight flush'.freeze,
+    four_of_a_kind?: 'Four of a kind'.freeze,
+    full_house?: 'Full house'.freeze,
+    flush?: 'Flush'.freeze,
+    straight?: 'Straight'.freeze,
+    three_of_a_kind?: 'Three of a kind'.freeze,
+    two_pair?: 'Two pair'.freeze,
+    pair?: 'Pair'.freeze,
+    high_card?: 'High card'.freeze
   }
 
   HAND_SIZE = 5
